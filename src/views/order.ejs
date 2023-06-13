@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopi Senja</title>
+    <link rel="icon" href="/images/LogoKopiSenja-removebg-preview.png">
+    <link rel="stylesheet" href="/stylesheet/main.css">
+    <link rel="stylesheet" href="/stylesheet/order.css">
+
+    <!-- GOOGLE FONTS - IMPORT HURUF DARI GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME - IMPORT ICON DARI FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="nav-logo">
+                <a href="#">
+                    <img class="logo-gambar" src="/images/LogoKopiSenja-removebg-preview.png" alt="Logo kopi senja">
+                    <span>KOPI SENJA</span>
+                </a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-lists">
+                    <li class="list-item"><a href="/beranda#">BERANDA</a></li>
+                    <li class="list-item"><a href="/beranda#menu">MENU</a></li>
+                    <li class="list-item"><a href="/beranda#tentang-kopisenja">TENTANG KAMI</a></li>
+                    <li class="list-item"><a href="#">ORDER</a></li>
+                </ul>
+                <button id="kontak-btn"><a href="/beranda#kontak-kami" style="color: #fff;">Kontak</a></button>
+                <button id="logout-btn">Logout</button>
+
+                <script>
+                    document.getElementById('logout-btn').addEventListener('click',()=>{
+                        localStorage.removeItem('IS_LOGIN')
+                        location.href = 'login.html'
+                    })
+                </script>
+
+                <div class="shopping-cart">
+                    <button id="shopping-cart-btn"><i class="fa-solid fa-cart-shopping text-hover-yellow"></i></button>
+                    <span class="total-keranjang">1</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="penutup-posisi-header"></div>
+    
+    <main>
+
+        <section id="pilih-menu">
+            <img src="/images/logo-section-2.png" style="position: absolute;top: 2%;left: 4%;z-index: -1;width: 200px;transform: rotate(45deg);">
+            <img src="/images/logo-section-1.png" style="position: absolute;bottom: 2%;right: 4%;z-index: -1;width: 200px;transform: rotate(-45deg);">
+
+            <div class="menu-container">
+                <div class="title">
+                    <h1>PILIH MENU</h1>
+                </div>
+                <ul class="order-menu-lists">
+                    <li class="list-item" data-id="0">
+                        <div class="menu-img">
+                            <img src="/images/kopi/americano-removebg.png">
+                        </div>
+                        <div class="menu-desc">
+                            <span class="menu-harga">Rp 20.000,00</span>
+                            <span class="menu-name">Senja Amer</span>
+                            <span class="menu-subname">Americano</span>
+                        </div>
+                    </li>
+                    <li class="list-item" data-id="1">
+                        <div class="menu-img">
+                            <img src="/images/kopi/senja-latte-removebg.png">
+                        </div>
+                        <div class="menu-desc">
+                            <span class="menu-harga">Rp 25.000,00</span>
+                            <span class="menu-name">Senja Latte</span>
+                            <span class="menu-subname">Caffe latte</span>
+                        </div>
+                    </li>
+                    <li class="list-item" data-id="2">
+                        <div class="menu-img">
+                            <img src="/images/kopi/senja-manis-removebg.png">
+                        </div>
+                        <div class="menu-desc">
+                            <span class="menu-harga">Rp 30.000,00</span>
+                            <span class="menu-name">Senja Manis</span>
+                            <span class="menu-subname">Caramel macchiato</span>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="order-menu-lists">
+                    <li class="list-item" data-id="3">
+                        <div class="menu-img">
+                            <img src="/images/kopi/senja-pait-removebg.png">
+                        </div>
+                        <div class="menu-desc">
+                            <span class="menu-harga">Rp 20.500,00</span>
+                            <span class="menu-name">Senja Pait</span>
+                            <span class="menu-subname">Espresso macchiato</span>
+                        </div>
+                    </li>
+                    <li class="list-item" data-id="4">
+                        <div class="menu-img">
+                            <img src="/images/kopi/senja-nilla-removebg.png">
+                        </div>
+                        <div class="menu-desc">
+                            <span class="menu-harga">Rp 30.000,00</span>
+                            <span class="menu-name">Senja Nilla</span>
+                            <span class="menu-subname">Vanilla latte</span>
+                        </div>
+                    </li>
+                    <li class="list-item" data-id="5">
+                        <div class="menu-img">
+                            <img src="/images/kopi/senja-mocha-removebg.png">
+                        </div>
+                        <div class="menu-desc">
+                            <span class="menu-harga">Rp 24.500,00</span>
+                            <span class="menu-name">Senja Mocha</span>
+                            <span class="menu-subname">Caffe mocha</span>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="order-menu-lists" >
+                    <li class="list-item" data-id="6">
+                        <div class="menu-img">
+                            <img src="/images/kopi/senja-mocha-frezze-removebg.png">
+                        </div>
+                        <div class="menu-desc">
+                            <span class="menu-harga">Rp 27.000,00</span>
+                            <span class="menu-name">Senja Mocha Freeze</span>
+                            <span class="menu-subname">Iced caffe mocha</span>
+                        </div>
+                    </li>
+                    <li class="list-item" data-id="7">
+                        <div class="menu-img">
+                            <img src="/images/kopi/senjacino-removebg.png">
+                        </div>
+                        <div class="menu-desc">
+                            <span class="menu-harga">Rp 30.000,00</span>
+                            <span class="menu-name">Senjacino</span>
+                            <span class="menu-subname">Cappuccino</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <div class="keranjang-order-modal">
+        <div class="container">
+            <div class="title">
+                <h1>KERANJANG BELANJA</h1>
+                <button id="order-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <ul class="order-lists">
+                <!-- <li class="list-item">
+                    <div class="order-img-desc">
+                        <div class="order-gambar">
+                            <img src="images/kopi/americano-removebg.png" alt="">
+                        </div>
+                        <div class="order-desc">
+                            <span class="order-item-nama">Americano</span>
+                            <span class="order-item-jumlah">1x</span>
+                            <span class="order-item-price">Rp.25.000,00</span>
+                        </div>
+                    </div>
+                    <div class="order-btn-wrapper">
+                        <button id="order-kurang-btn">-</button>
+                        <button id="order-tambah-btn">+</button>
+                    </div>
+                </li> -->
+            </ul>
+            <div class="order-total-wrapper">
+                <span class="total-harga">-</span>
+                <button id="order-btn">Pesan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/javascript/main.js"></script>
+
+    <script>
+        const isLogin = localStorage.getItem('IS_LOGIN')
+
+        // KETIKA BELUM LOGIN MAKA AKAN DI REDIRECT KE HALAMAN LOGIN
+        if(!isLogin){
+            location.href = '/login'
+        }
+    </script>
+</body>
+
+</html>

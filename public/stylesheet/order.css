@@ -1,0 +1,127 @@
+:root{
+    --huruf-utama: "Oswald",sans-serif;
+    --huruf-kedua: "Open-Sans",sans-serif;
+    --warna-text-utama: #30271c;
+}
+
+body{
+    min-height: 100vh;
+}
+
+.penutup-posisi-header{
+    height: 80px;
+}
+
+#logout-btn{
+    background: none;
+    border: none;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: var(--huruf-utama);
+    padding: 5px 12px;
+    background-color: rgb(168, 0, 0);
+    color: #fff;
+    cursor: pointer;
+    transition: 0.4s;
+    border-radius: 7px;
+}
+
+#logout-btn:hover{
+    background-color: rgb(201, 0, 0);
+}
+
+#pilih-menu{
+    position: relative;
+    display: flex;
+    width: 1800px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+    justify-content: center;
+}
+
+.menu-container{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.menu-container .title h1{
+    color: var(--warna-text-utama);
+    font-size: 2.5rem;
+}
+
+.menu-container .title h1::after{
+    content: '';
+    display: block;
+    height: 1px;
+    margin: 0 auto;
+    margin-top: 1rem;
+    background-color: #c7a17a;
+}
+
+.menu-lists{
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.menu-lists .list-item{
+    display: flex;
+    width: 350px;
+    height: 170px;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    background-color: rgb(56, 45, 35);
+    color: #d1b79f;
+    cursor: pointer;
+    transition: 0.4s;
+    align-items: center;
+}
+
+.menu-lists .list-item:hover{
+    box-shadow: 0 15px 25px rgba(56, 45, 35, 0.7);
+    transform: scale(1.05);
+}
+
+.menu-lists .menu-img{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.menu-lists .list-item img{
+    display: block;
+    width: 100px;
+}
+
+.menu-desc{
+    display: flex;
+    flex-direction: column;
+    align-self: self-start;
+}
+
+.menu-harga{
+    font-size: 1.4rem;
+    font-family: var(--huruf-utama);
+    font-weight: 700;
+}
+
+.menu-name{
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-top: 5px;
+    font-family: 'Merriweather',sans-serif;
+}
+
+.menu-subname{
+    margin-top: 5px;
+    font-size: 14px;
+    font-family: 'Merriweather',sans-serif;
+}

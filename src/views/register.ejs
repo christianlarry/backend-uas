@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Kopi Senja</title>
+    <link rel="icon" href="/images/LogoKopiSenja-removebg-preview.png">
+    <link rel="stylesheet" href="/stylesheet/register.css">
+
+    <!-- GOOGLE FONTS - IMPORT HURUF DARI GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME - IMPORT ICON DARI FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <section id="registerform">
+        <div class="container">
+            <div class="register-logo">
+                <a href="index.html">
+                    <img src="/images/LogoKopiSenja-removebg-preview.png" alt="" width="70" height="70">
+                    <h2>KOPI SENJA</h2>
+                    <p>Kopinya anak senja</p>
+                </a>
+            </div>
+            <span id="pesan-validasi" style="color: red;font-family: 'Oswald',sans-serif;"></span>
+            <form class="register-form" action="" method="post">
+                <ul>
+                    <li>
+                        <input type="text" id="username" name="username" placeholder="Masukkan username" required> 
+                    </li>
+                    <li>
+                        <input type="password" id="password" name="password" placeholder="Password" required> 
+                    </li>
+                    <li>
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Konfirmasi password" required> 
+                    </li>
+                </ul>
+                <button type="submit" name="register" id="register">Registrasi</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // MENDAPATKAN DATA USER DARI LOCAL STORAGE, JIKA TIDAK ADA AKAN DIISI DENGAN EMPTY ARRAY
+        const user = JSON.parse(localStorage.getItem('data_user')) || []
+
+        // KETIKA REGISTER FORM DI SUBMIT MAKA ...
+        document.querySelector('.register-form').addEventListener('submit',(e)=>{
+            // MEMATIKAN AKSI DEFAULT DARI FORM SAAT SUBMIT
+            e.preventDefault()
+            
+            // MEMASUKAN INPUT USERNAME, PASSWORD, DAN KONFIRMASI PASSWORD KE DALAM VARIABEL BODY
+            const body = {
+                username: document.getElementById('username').value,
+                password: document.getElementById('password').value,
+                confirmPassword: document.getElementById('confirmPassword').value
+            }
+
+            // VALIDASI KETIKA KONFIRMASI PASS TIDAK SESUAI DENGAN PASSWORD
+            if(body.confirmPassword != body.password) return document.getElementById('pesan-validasi').textContent = 'Password dan konfirmasi password tidak sesuai'
+
+            // JIKA BERHASIL MELEWATI VALIDASI MAKA PADA ARRAY USER AKAN DITAMBAHKAN OBJEK BARU YANG BERISI USERNAME DAN PASSWORD YANG DIINPUT PENGGUNA
+            user.push({username: body.username,password: body.password})
+
+            // MENYIMPAN ARRAY OBJEK USER KE DALAM LOCAL STORAGE DENGAN KEY DATA USER DAN VALUE STRING JSON DARI ARRAY OBJEK USER
+            localStorage.setItem('data_user',JSON.stringify(user))
+
+            alert('Berhasil register👍, Silahkan login terlebih dahulu untuk melanjutkan')
+            location.href = 'login.html'
+        })
+
+    </script>
+</body>
+</html>

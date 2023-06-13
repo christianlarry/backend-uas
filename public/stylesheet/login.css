@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    background-image: url("../images/background/bg-1.jpg");
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: "Open-Sans",sans-serif;
+}
+
+section#loginform{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+ul,li,a{
+    text-decoration: none;
+    list-style: none;
+}
+
+.container{
+    width: 500px;
+    background-color: rgb(234, 231, 222);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid rgb(211, 211, 211);
+    border-radius: 5px;
+}
+
+.login-logo{
+    margin: 20px;
+}
+
+.login-logo a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-logo a h2{
+    font-family: "Oswald",sans-serif;
+    font-size: 1.8rem;
+    color: rgb(66, 66, 66);
+}
+
+.login-logo a p{
+    color: rgb(66, 66, 66);
+}
+
+.login-form{
+    margin-bottom: 20px;
+}
+
+.login-form ul li input{
+    margin: 10px 0;
+    padding: 10px;
+    width: 280px;
+    height: 50px;
+    outline: none;
+    font-size: 1rem;
+    transition: 0.4s;
+    font-family: "Oswald",sans-serif;
+}
+
+.login-form ul li input:focus{
+    border: 2px solid rgba(58, 58, 58, 0.692);
+}
+
+.login-form #login{
+    display: block;
+    margin: 15px auto 0;
+    padding: 12px 20px;
+    border: none;
+    font-size: 1rem;
+    font-family: "Open-Sans",sans-serif;
+    letter-spacing: 1.5px;
+    background-color: #30271c;
+    color: #fff;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.login-form #login:hover{
+    background-color: #534534;
+}
+
+.register-link a{
+    color: #57483b;
+    text-decoration: underline;
+}
+
+.register-link a:hover{
+    opacity: 0.8;
+}
+
+.register-link{
+    margin-bottom: 10px;
+}
