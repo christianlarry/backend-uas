@@ -1,9 +1,10 @@
 const mysql = require('mysql2')
 
 const db = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    database: 'kopi_senja'
+    host: process.env.HOST,
+    user: process.env.USERNAME,
+    database: process.env.DB_NAME,
+    password: process.env.PASSWORD
 })
 
 db.getConnection((err)=>{
