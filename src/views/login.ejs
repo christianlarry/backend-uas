@@ -48,16 +48,10 @@
     </section>
 
     <script>
-        //KITA AKAN MENGAMBIL DATA USER YANG ADA DALAM LOCAL STORAGE
-        const user = JSON.parse(localStorage.getItem('data_user'))
-
         // KETIKA LOGIN FORM DI SUBMIT MAKA ...
-        document.querySelector('.login-form').addEventListener('submit',(e)=>{
+        document.querySelector('.login-form').addEventListener('submit',async (e)=>{
             // MEMATIKAN AKSI DEFAULT DARI FORM SAAT SUBMIT
             e.preventDefault()
-
-            // JIKA BELUM ADA DATA USER DIDALAM LOCAL STORAGE MAKA LOGIN AKAN SELALU GAGAL DAN HARUS MENDAFTAR TERLEBIH DAHULU
-            if(!user) return document.getElementById('pesan-validasi').textContent = 'Data user belum ada, Silahkan mendaftar terlebih dahulu'
 
             // AMBIL VALUE DARI INPUT USERNAME DAN PASSWORD
             const body = {
@@ -65,21 +59,22 @@
                 password: document.getElementById('password').value
             }
 
-            // MENCARI USERNAME BERDASARKAN USERNAME YANG DIINPUT PENGGUNA
-            const cariUsername = user.filter((value)=> value.username == body.username)
+            // FETCH KE LOGIN POST
+            const response = await fetch('/login',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            })
 
-            //KETIKA USERNAME TIDKA DITEMUKAN MAKA AKAN MENAMPILKAN PESAN USERNAME TIDAK DITEMUKAN PADA ELEMENT DENGAN ID PESAN VALIDASI
-            if(cariUsername.length === 0) return document.getElementById('pesan-validasi').textContent = 'Username tidak ditemukkan'
-            
-            //KETIKA PASSWORD TIDKA SAMA MAKA AKAN MENAMPILKAN PESAN PASSWOD SALAH PADA ELEMENT DENGAN ID PESAN VALIDASI
-            if(body.password != cariUsername[0].password) return document.getElementById('pesan-validasi').textContent = 'Password Salah'
+            const result = await response.json()
+
+            if(response.status != 200) return document.getElementById('pesan-validasi').textContent = result.error.message
 
             alert('Berhasil login👍')
-            
-            //MENAMBAHKAN DATA PADA LOCAL STORAGE DENGAN KEY IS_LOGIN DAN VALUE TRUE MENANDAKAN BAHWA USER TELAH LOGIN
-            localStorage.setItem('IS_LOGIN',true)
 
-            location.href = 'order.html'
+            location.href = '/order'
         })
 
     </script>

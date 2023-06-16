@@ -41,9 +41,14 @@
                 <button id="logout-btn">Logout</button>
 
                 <script>
-                    document.getElementById('logout-btn').addEventListener('click',()=>{
-                        localStorage.removeItem('IS_LOGIN')
-                        location.href = 'login.html'
+                    document.getElementById('logout-btn').addEventListener('click',async ()=>{
+                        alert('Berhasil Logout😢')
+
+                        fetch('/logout',{
+                            method: 'POST'
+                        })
+
+                        location.href = '/beranda'
                     })
                 </script>
 
@@ -182,21 +187,13 @@
             </ul>
             <div class="order-total-wrapper">
                 <span class="total-harga">-</span>
+                <button style="display: block;margin-top: 8px;padding: 8px;background: rgb(173, 0, 0);border: none;color: white;cursor: pointer;" id="batal-btn">Batalkan Pesanan</button>
                 <button id="order-btn">Pesan Sekarang</button>
             </div>
         </div>
     </div>
 
     <script src="/javascript/main.js"></script>
-
-    <script>
-        const isLogin = localStorage.getItem('IS_LOGIN')
-
-        // KETIKA BELUM LOGIN MAKA AKAN DI REDIRECT KE HALAMAN LOGIN
-        if(!isLogin){
-            location.href = '/login'
-        }
-    </script>
 </body>
 
 </html>

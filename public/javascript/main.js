@@ -124,18 +124,37 @@ shoppingCartBtn.addEventListener('click',(e)=>{
                 </div>
                 <div class="order-desc">
                     <span class="order-item-nama">${value.namaKopi}</span>
-                    <span class="order-item-jumlah">1x</span>
                     <span class="order-item-price">Rp.${value.price}</span>
                 </div>
-            </div>
-            <div class="order-btn-wrapper">
-                <button id="order-kurang-btn" data-id="${value.id}">-</button>
-                <button id="order-tambah-btn" data-id="${value.id}">+</button>
             </div>
         </li>
         `
     })
     totalHargaContainer.textContent = `Rp.${totalHarga}`
+})
+
+document.addEventListener('click',(e)=>{
+    if(e.target == document.getElementById('order-btn')){
+        const orderItem = JSON.parse(localStorage.getItem('data_order'))
+
+        if(orderItem.length === 0) return alert('Tidak ada produk yang dipesan, Silahkan memesan terlebih dahulu')
+    
+        alert('Terima kasih sudah memesan produk dari Kopi Senja, Semoga kamu lebih enjoy menjalani keseharian bersama kopi senja, Kopinya anak muda!❤')
+    
+        localStorage.setItem('data_order',JSON.stringify([]))
+        keranjangModal.style.display = 'none'
+        document.querySelector('.total-keranjang').textContent = 0
+    }
+
+    if(e.target == document.getElementById('batal-btn')){
+        const orderItem = JSON.parse(localStorage.getItem('data_order'))
+
+        if(orderItem.length === 0) return alert('Belum ada pesanan')
+
+        localStorage.setItem('data_order',JSON.stringify([]))
+        keranjangModal.style.display = 'none'
+        document.querySelector('.total-keranjang').textContent = 0
+    }
 })
 
 orderCloseBtn.addEventListener('click',()=>{
